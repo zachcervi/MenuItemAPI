@@ -1,6 +1,12 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, {
+  Request,
+  Response,
+  NextFunction,
+  RequestHandler,
+} from 'express';
 import * as ItemService from './items.service';
 import { BaseItem, Item } from './item.interface';
+import { checkJwt } from '../../middleware/authz.middleware';
 
 /**
  * Router Definition
@@ -9,6 +15,10 @@ export const itemsRouter = express.Router();
 
 /**
  * Controller Definitions
+ */
+
+/**
+ * Public Routes
  */
 itemsRouter.get(
   '/',
@@ -21,6 +31,11 @@ itemsRouter.get(
     }
   },
 );
+
+/**
+ * Protected Routes
+ */
+itemsRouter.use(checkJwt as RequestHandler);
 
 // GET items/:id
 itemsRouter.get(
@@ -49,6 +64,7 @@ itemsRouter.post(
       const newItem = await ItemService.create(item);
       res.status(201).json(newItem);
     } catch (e: unknown) {
+      console.error(e);
       next(e);
     }
   },
