@@ -60,8 +60,8 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    npm start
    ```
 7. **Run Unit Tests:**
-  ```bash
-    npm run test
+   ```bash
+   npm run test
   ```
 
 ---
