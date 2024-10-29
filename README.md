@@ -18,7 +18,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    ```bash
    git clone https://github.com/zachcervi/MenuItemAPI.git
    cd MenuItemAPI
-
    ```
 
 2. **Install Dependencies:**
@@ -31,7 +30,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
    ```env
    PORT=5050
-
    ```
 
 4. **Build the Project:**
@@ -40,7 +38,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
    ```bash
    npm run build
-
    ```
 
 ---
@@ -53,7 +50,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
    ```bash
    npm run dev
-
    ```
 
 6. **Run the Server in Production Mode:**
@@ -212,7 +208,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
     "description": "Extra cheesy",
     "image": "https://cdn.auth0.com/blog/whatabyte/pizza-updated-sm.png"
   }
-
   ```
 
 - **Response**:
