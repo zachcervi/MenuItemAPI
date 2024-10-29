@@ -68,9 +68,6 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    ```bash
    npm run test
    ```
-
-````
-
 ---
 
 ## API Endpoints
