@@ -30,6 +30,8 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
    ```env
    PORT=5050
+   AUTH0_AUDIENCE=<your auth0 audience>
+   AUTH0_DOMAIN=<your auth0 domain>
    ```
 
 4. **Build the Project:**
