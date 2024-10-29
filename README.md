@@ -68,6 +68,7 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    ```bash
    npm run test
    ```
+
 ---
 
 ## API Endpoints
@@ -93,12 +94,12 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
 ```json
 {
-"name": "Salad",
-"price": 499,
-"description": "Fresh and healthy",
-"image": "https://example.com/salad.png"
+  "name": "Salad",
+  "price": 499,
+  "description": "Fresh and healthy",
+  "image": "https://example.com/salad.png"
 }
-````
+```
 
 ### Update Menu Item by ID
 
