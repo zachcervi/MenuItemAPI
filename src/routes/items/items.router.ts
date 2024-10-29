@@ -35,7 +35,7 @@ itemsRouter.get(
 /**
  * Protected Routes
  */
-//itemsRouter.use(checkJwt as RequestHandler);
+itemsRouter.use(checkJwt as RequestHandler);
 
 // GET items/:id
 itemsRouter.get(
@@ -64,6 +64,7 @@ itemsRouter.post(
       const newItem = await ItemService.create(item);
       res.status(201).json(newItem);
     } catch (e: unknown) {
+      console.error(e);
       next(e);
     }
   },

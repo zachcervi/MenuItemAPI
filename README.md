@@ -32,6 +32,8 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    PORT=5050
    AUTH0_AUDIENCE=<your auth0 audience>
    AUTH0_DOMAIN=<your auth0 domain>
+   AUTH0_CLIENT_ID=<your auth0 client id>
+   AUTH0_CLIENT_SECRET=<your auth0 client secret>
    ```
 
 4. **Build the Project:**
@@ -61,10 +63,13 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
    ```bash
    npm start
    ```
+
 7. **Run Unit Tests:**
    ```bash
    npm run test
-  ```
+   ```
+
+````
 
 ---
 
@@ -91,12 +96,12 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 
 ```json
 {
-  "name": "Salad",
-  "price": 499,
-  "description": "Fresh and healthy",
-  "image": "https://example.com/salad.png"
+"name": "Salad",
+"price": 499,
+"description": "Fresh and healthy",
+"image": "https://example.com/salad.png"
 }
-```
+````
 
 ### Update Menu Item by ID
 
@@ -229,6 +234,8 @@ This API is built with Node.js, Express, and TypeScript, providing endpoints to 
 - **Request**:
   ```http
   DELETE /api/menu/items/2
+  ```
 - **Response**:
   ```http
   Status: 204 No Content
+  ```
