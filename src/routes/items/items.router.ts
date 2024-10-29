@@ -1,4 +1,9 @@
-import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+import express, {
+  Request,
+  Response,
+  NextFunction,
+  RequestHandler,
+} from 'express';
 import * as ItemService from './items.service';
 import { BaseItem, Item } from './item.interface';
 import { checkJwt } from '../../middleware/authz.middleware';
