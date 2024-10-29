@@ -17,11 +17,12 @@ app.use((0, helmet_1.default)());
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use("/api/menu/items", items_router_1.itemsRouter);
+app.get("/", (req, res) => {
+    res.json({ message: "Allo! Catch-all route." });
+});
 app.use(error_middleware_1.errorHandler);
 app.use(not_found_middleware_1.notFoundHandler);
-app.get("/", (req, res) => {
-    res.send("Express + TypeScript Server");
-});
 app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+exports.default = app;

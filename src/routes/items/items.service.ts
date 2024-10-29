@@ -55,24 +55,24 @@ export const create = async (newItem: BaseItem): Promise<Item> => {
 export const update = async (
   id: number,
   itemUpdate: BaseItem
-): Promise<Item | null> => {
+): Promise<Item | false> => {
   const item = await find(id);
 
   if (!item) {
-    return null;
+    return false; // Item not found
   }
 
   items[id] = { id, ...itemUpdate };
-
-  return items[id];
+  return items[id]; // Updated item
 };
 
-export const remove = async (id: number): Promise<null | void> => {
+export const remove = async (id: number): Promise<boolean> => {
   const item = await find(id);
 
   if (!item) {
-    return null;
+    return false; // Item not found
   }
 
   delete items[id];
+  return true; // Item successfully deleted
 };

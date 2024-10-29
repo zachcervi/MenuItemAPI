@@ -32,7 +32,7 @@ itemsRouter.get(
       if (item) {
         res.status(200).send(item);
       } else {
-        res.status(404).send("Item not found");
+        res.status(404).send({ message: "Item not found" });
       }
     } catch (e: unknown) {
       next(e);
@@ -59,17 +59,18 @@ itemsRouter.put(
   "/:id",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const id: number = parseInt(req.params.id, 10);
-    try {
-      const itemUpdate: Item = req.body as Item;
-      const existingItem = await ItemService.find(id);
 
-      if (existingItem) {
-        const updatedItem = await ItemService.update(id, itemUpdate);
-        res.status(200).json(updatedItem);
-      } else {
-        const newItem = await ItemService.create(itemUpdate);
-        res.status(201).json(newItem);
+    try {
+      const itemUpdate: BaseItem = req.body as BaseItem;
+      const updatedItem = await ItemService.update(id, itemUpdate);
+
+      if (updatedItem === false) {
+        // Item not found, return 404
+        res.status(404).json({ message: "Item not found" });
       }
+
+      // Item successfully updated
+      res.status(200).json(updatedItem);
     } catch (e: unknown) {
       next(e);
     }
@@ -82,7 +83,15 @@ itemsRouter.delete(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const id: number = parseInt(req.params.id, 10);
-      await ItemService.remove(id);
+
+      const itemDeleted = await ItemService.remove(id);
+
+      if (!itemDeleted) {
+        // Item not found, return 404
+        res.status(404).json({ message: "Item not found" });
+      }
+
+      // Item successfully deleted
       res.sendStatus(204);
     } catch (e: unknown) {
       next(e);
